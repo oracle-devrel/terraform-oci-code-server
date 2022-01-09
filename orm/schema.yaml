@@ -1,0 +1,57 @@
+# Title shown in Application Information tab.
+title: Launch code-server instance 
+# Sub Title shown in Application Information tab.
+description: Environment to run code-server instance on OCI
+schemaVersion: 1.1.0
+version: 1.0
+locale: en
+variableGroups:
+  - title: "Hidden"
+    variables:
+      - ${tenancy_ocid}
+      - ${user_ocid}
+      - ${region}
+      - ${api_fingerprint}
+      - ${api_private_key_path}
+      - ${region}
+      - ${compartment_ocid}
+      - ${ssh_public_key_path}
+      - ${freeform_tags}
+      - ${defined_tags}
+      - ${instance_flex_memory_in_gbs}
+      - ${instance_ad_number}
+      - ${public_ip}
+      - ${vcn_cidr}
+      - ${subnets}
+    visible: false
+  - title: "Configuration"
+    variables:
+      - ${ssh_public_keys}
+      - ${shape}
+      - ${instance_flex_ocpus}
+      - ${instance_display_name}
+
+variables:
+  ssh_public_keys:
+    title: Compute SSH Public Key
+    description: The public key to install on the compute for SSH access.
+    type: oci:core:ssh:publickey
+    required: false
+  shape:
+    title: Instance Shape
+    type: string
+    description: The image name to use for the compute instance
+    default: VM.Standard.E4.Flex
+    required: false
+  instance_flex_ocpus:
+    title: Flex Instance OCPU number
+    type: string
+    description: The number of OCPUs. It applies to Flex Instance only
+    default: 1
+    required: false
+  instance_display_name:
+    title: Instance Name
+    type: string
+    description: The image name to use for the compute instance
+    default: oci-code-server
+    required: false

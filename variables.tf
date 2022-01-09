@@ -47,7 +47,7 @@ variable "freeform_tags" {
     "terraformed" = "Please do not edit manually" ,
     "app"         = "code-server" ,
     "github"      = "https://github.com/oracle-devrel/terraform-oci-code-server",
-    "oci"         = "DET"  
+    "oci"         = "ODE"  
   }
 }
 

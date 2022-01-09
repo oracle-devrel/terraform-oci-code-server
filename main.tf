@@ -1,5 +1,5 @@
-// Copyright (c) 2018, 2021 Oracle and/or its affiliates.
-
+# Copyright (c) 2019, 2021, Oracle Corporation and/or affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl
 
 
 module "vsc_instance" {
@@ -20,8 +20,8 @@ module "vsc_instance" {
   instance_flex_memory_in_gbs = var.instance_flex_memory_in_gbs 
   instance_flex_ocpus         = var.instance_flex_ocpus         
   # operating system parameters
-  ssh_public_keys = file(var.ssh_public_key_path)  
-  user_data = "${base64encode(data.template_file.cloud-config.rendered)}"
+  ssh_public_keys = var.ssh_public_keys != "" ? var.ssh_public_keys : file(var.ssh_public_key_path)
+  user_data = base64encode(data.template_file.cloud-config.rendered)
   # networking parameters
   public_ip            = var.public_ip 
   subnet_ocids         = [oci_core_subnet.sub.id]

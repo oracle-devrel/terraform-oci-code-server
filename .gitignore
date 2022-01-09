@@ -48,3 +48,4 @@ generated/**
 # visual code
  **/.vscode/*
 .terraform.lock.hcl
+local

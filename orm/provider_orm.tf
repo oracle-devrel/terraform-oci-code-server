@@ -18,9 +18,9 @@ provider "oci" {
   ### FOR ORM USAGE, COMMENT THE TERRAFORM CLI AND OCI CLOUD SHELL SECTIONS
   
   ### BEGIN UNCOMMENT FOR TERRAFORM CLI (running locally)
-  user_ocid = var.user_ocid
-  fingerprint = var.api_fingerprint
-  private_key_path = var.api_private_key_path
+  # user_ocid = var.user_ocid
+  # fingerprint = var.api_fingerprint
+  # private_key_path = var.api_private_key_path
   ### END UNCOMMENT FOR TERRAFORM CLI (running locally)
   
   ### BEGIN UNCOMMENT FOR OCI CLOUD SHELL
