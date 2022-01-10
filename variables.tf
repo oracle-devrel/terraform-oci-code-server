@@ -92,7 +92,6 @@ variable "instance_ad_number" {
 }
 
 
-
 # operating system parameters
 
 # if both ssh_public-keys and ssh_public_key_path are provided, ssh_public_keys takes priority
