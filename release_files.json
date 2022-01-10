@@ -23,6 +23,7 @@
       },
       {
         "src": "terraform/orm/provider_orm.tf",
+
         "dst": "provider.tf"
       }
     ]
