@@ -58,8 +58,8 @@ variable "defined_tags" {
 }
 
 
-
 # compute instance parameters
+
 variable "shape" {
   description = "The shape of an instance."
   type        = string
@@ -90,7 +90,6 @@ variable "instance_ad_number" {
   type        = number
   default     = 1
 }
-
 
 # operating system parameters
 
