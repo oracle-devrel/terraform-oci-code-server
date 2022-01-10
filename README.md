@@ -16,9 +16,6 @@ This project enables you to create and configure network and compute resources o
 ### Prerequisites
 - Oracle Cloud account
 
-## Notes/Issues
-
-
 ## URLs
 For more information about `code-server`: 
 * [code-server](https://github.com/coder/code-server)
