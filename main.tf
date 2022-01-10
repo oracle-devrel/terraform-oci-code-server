@@ -20,7 +20,7 @@ module "vsc_instance" {
   instance_flex_memory_in_gbs = var.instance_flex_memory_in_gbs 
   instance_flex_ocpus         = var.instance_flex_ocpus         
   # operating system parameters
-  ssh_public_keys = var.ssh_public_keys != "" ? var.ssh_public_keys : file(var.ssh_public_key_path)
+  ssh_public_keys = var.ssh_public_keys != "" ? var.ssh_public_keys : var.ssh_public_key_path != "" ? file(var.ssh_public_key_path) :""
   user_data = base64encode(data.template_file.cloud-config.rendered)
   # networking parameters
   public_ip            = var.public_ip 

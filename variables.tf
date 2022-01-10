@@ -95,17 +95,18 @@ variable "instance_ad_number" {
 
 # operating system parameters
 
+# if both ssh_public-keys and ssh_public_key_path are provided, ssh_public_keys takes priority
+variable "ssh_public_keys" {
+  description = "Public SSH key(s) provided as string value"
+  type = string
+  default = ""
+}
+
 variable "ssh_public_key_path" {
   description = "Public SSH key file path"
   type = string
   default = ""
   
-}
-
-variable "ssh_public_keys" {
-  description = "Public SSH key(s) provided as string value"
-  type = string
-  default = ""
 }
 
 
