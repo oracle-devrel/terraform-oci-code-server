@@ -58,8 +58,8 @@ variable "defined_tags" {
 }
 
 
-
 # compute instance parameters
+
 variable "shape" {
   description = "The shape of an instance."
   type        = string
@@ -91,23 +91,20 @@ variable "instance_ad_number" {
   default     = 1
 }
 
-
-
 # operating system parameters
 
-variable "ssh_public_key_path" {
-  description = "Public SSH key file path"
-  type = string
-  default = ""
-  
-}
-
+# if both ssh_public-keys and ssh_public_key_path are provided, ssh_public_keys takes priority
 variable "ssh_public_keys" {
   description = "Public SSH key(s) provided as string value"
   type = string
   default = ""
 }
 
+variable "ssh_public_key_path" {
+  description = "Public SSH key file path"
+  type = string
+  default = ""
+  
 
 # networking parameters
 
