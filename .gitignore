@@ -31,3 +31,21 @@ Temporary Items
 .crt
 .csr
 .pem
+
+#  Local .terraform directories
+**/.terraform/*
+
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+generated/**
+
+# visual code
+ **/.vscode/*
+.terraform.lock.hcl
+local

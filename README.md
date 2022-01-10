@@ -1,23 +1,25 @@
-# terraform-oci-code-server
+# Code-Server on Oracle Cloud Infrastructure 
 
 [![License: UPL](https://img.shields.io/badge/license-UPL-green)](https://img.shields.io/badge/license-UPL-green) [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=oracle-devrel_terraform-oci-code-server)](https://sonarcloud.io/dashboard?id=oracle-devrel_terraform-oci-code-server)
 
-## THIS IS A NEW, BLANK REPO THAT IS NOT READY FOR USE YET.  PLEASE CHECK BACK SOON!
+## Deploy Code-Server on OCI VM 
+
+One-click button deploy to deploy [code-server](https://github.com/cdr/code-server) on Oracle Cloud Infrastructure compute instance.
 
 ## Introduction
-MISSING
+This project enables you to create and configure network and compute resources on OCI and launch a code-server instance.
 
-## Getting Started
-MISSING
+## Architecture Diagram
+
+![code-server deployment architecture diagram](docs/images/tf-code-server.png)
 
 ### Prerequisites
-MISSING
-
-## Notes/Issues
-MISSING
+- Oracle Cloud account
 
 ## URLs
-* Nothing at this time
+For more information about `code-server`: 
+* [code-server](https://github.com/coder/code-server)
+* [deploy-code-server](https://github.com/coder/deploy-code-server)
 
 ## Contributing
 This project is open source.  Please submit your contributions by forking this repository and submitting a pull request!  Oracle appreciates any contributions that are made by the open source community.
