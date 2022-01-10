@@ -1,7 +1,7 @@
 # Title shown in Application Information tab.
 title: Launch code-server instance 
 # Sub Title shown in Application Information tab.
-description: Environment to run code-server instance on OCI
+description: Launch a code-server instance on OCI
 schemaVersion: 1.1.0
 version: 1.0
 locale: en
@@ -28,8 +28,8 @@ variableGroups:
     variables:
       - ${compartment_ocid}
       - ${ssh_public_keys}
-      - ${shape}
       - ${instance_display_name}
+      - ${shape}
       - ${instance_flex_ocpus}
 
 variables:
@@ -40,20 +40,19 @@ variables:
       required: false
   ssh_public_keys:
     title: Compute SSH Public Key
-    description: The public key to install on the instance for SSH access.
     type: oci:core:ssh:publickey
+    description: The public key to install on the instance for SSH access.
     required: false
   instance_display_name:
     title: Instance Name
     type: string
     description: The name to use for the compute instance
-    type: oci:core:instanceshape:name
     default: oci-code-server
     required: false
   shape:
     title: Instance Shape
     type: string
-    description: The image name to use for the compute instance
+    description: The shape name to use for the compute instance
     default: VM.Standard.E4.Flex
     required: false
   instance_flex_ocpus:
