@@ -26,16 +26,29 @@ variableGroups:
     visible: false
   - title: "Configuration"
     variables:
+      - ${compartment_ocid}
       - ${ssh_public_keys}
       - ${shape}
-      - ${instance_flex_ocpus}
       - ${instance_display_name}
+      - ${instance_flex_ocpus}
 
 variables:
+  compartment_ocid:
+      title: Compartment
+      description: Compartment where to deploy the stack
+      type: oci:identity:compartment:id
+      required: false
   ssh_public_keys:
     title: Compute SSH Public Key
-    description: The public key to install on the compute for SSH access.
+    description: The public key to install on the instance for SSH access.
     type: oci:core:ssh:publickey
+    required: false
+  instance_display_name:
+    title: Instance Name
+    type: string
+    description: The name to use for the compute instance
+    type: oci:core:instanceshape:name
+    default: oci-code-server
     required: false
   shape:
     title: Instance Shape
@@ -49,9 +62,4 @@ variables:
     description: The number of OCPUs. It applies to Flex Instance only
     default: 1
     required: false
-  instance_display_name:
-    title: Instance Name
-    type: string
-    description: The image name to use for the compute instance
-    default: oci-code-server
-    required: false
+  

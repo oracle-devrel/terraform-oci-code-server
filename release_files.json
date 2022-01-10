@@ -4,25 +4,21 @@
     "file_name": "oci-deploy-code-server-latest.zip",
     "files": [
       {
-        "src_pattern": "terraform/*.tf",
+        "src_pattern": "*.tf",
         "dst_path": ".",
         "exclude": [
-          "terraform/provider.tf"
+          "provider.tf"
         ]
-      },
-      {
-        "src_pattern": "terraform/scripts/*",
-        "dst_path": "."
       },
       {
         "src": "LICENSE"
       },
       {
-        "src": "terraform/orm/schema.yaml",
+        "src": "orm/schema.yaml",
         "dst": "schema.yaml"
       },
       {
-        "src": "terraform/orm/provider_orm.tf",
+        "src": "orm/provider_orm.tf",
 
         "dst": "provider.tf"
       }
