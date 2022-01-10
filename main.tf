@@ -79,6 +79,7 @@ resource "oci_core_subnet" "sub" {
   dns_label                  = "vscsub"
   prohibit_public_ip_on_vnic = false
   route_table_id = module.vcn.ig_route_id
+  freeform_tags    = var.freeform_tags
 }
 
 
@@ -86,7 +87,7 @@ module "oci_security_policies" {
   source          = "github.com/oracle-terraform-modules/terraform-oci-tdf-network-security"
   
   default_compartment_id  = var.compartment_ocid
-  default_freeform_tags   = { "app" = "code-server" }
+  default_freeform_tags   = var.freeform_tags
   vcn_id                  = module.vcn.vcn_id
   
   standalone_nsg_rules  = {

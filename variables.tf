@@ -104,7 +104,7 @@ variable "ssh_public_key_path" {
   description = "Public SSH key file path"
   type = string
   default = ""
-  
+}
 
 # networking parameters
 

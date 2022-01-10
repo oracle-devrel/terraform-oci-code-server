@@ -1,8 +1,9 @@
 # Code-Server on Oracle Cloud Infrastructure 
 
-[![License: UPL](https://img.shields.io/badge/license-UPL-green)](https://img.shields.io/badge/license-UPL-green) [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=oracle-devrel_terraform-oci-code-server)](https://sonarcloud.io/dashboard?id=oracle-devrel_terraform-oci-code-server)
+[![License: UPL](https://img.shields.io/badge/license-UPL-green)](https://img.shields.io/badge/license-UPL-green) 
 
-## Deploy Code-Server on OCI VM 
+
+## Deploy Code-Server on a compute instance running on Oracle Cloud Infrastructure 
 
 One-click button deploy to deploy [code-server](https://github.com/cdr/code-server) on Oracle Cloud Infrastructure compute instance.
 
@@ -40,6 +41,8 @@ This project enables you to create and configure network and compute resources o
 4. On the **Review** page, be sure *Run Apply* is checked, and click **Create**.
 
 5. This will take you to the **Job Details** page, and OCI will begin creating the stack and deploying the custom image for the lab. This will take a few minutes. When it completes (assuming everything went smoothly), the **Job Details** will show a bright green square with "Succeeded" below it.
+
+6. Go back to the **Stack Details** page, in the **Application Information** tab you can find the public IP of the instance. You can use that IP for the first login to VS Code.
     
 
 ## URLs
@@ -56,3 +59,8 @@ Copyright (c) 2021 Oracle and/or its affiliates.
 Licensed under the Universal Permissive License (UPL), Version 1.0.
 
 See [LICENSE](LICENSE) for more details.
+
+---
+
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=oracle-devrel_terraform-oci-code-server)](https://sonarcloud.io/dashboard?id=oracle-devrel_terraform-oci-code-server)

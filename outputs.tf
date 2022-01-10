@@ -1,6 +1,10 @@
 # Copyright (c) 2019, 2021, Oracle Corporation and/or affiliates.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl
 
+output "code-server-publicIP" {
+  value = module.vsc_instance.public_ip_all_attributes.0.ip_address
+}
+
 output "vsc_instance" {
   description = "code-server instance details"
   value       = {

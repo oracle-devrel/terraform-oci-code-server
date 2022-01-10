@@ -61,4 +61,15 @@ variables:
     description: The number of OCPUs. It applies to Flex Instance only
     default: 1
     required: false
-  
+
+outputs:
+  code-server-publicIP:
+    title: "code-server Public IP"
+    displayText: "code-server Public IPs"
+    type: copyableString
+    visible: true
+  vsc_instance: 
+    title: "instance information"
+    displayText: "instance information"
+    type: string
+    visible: false
