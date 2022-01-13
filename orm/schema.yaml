@@ -1,66 +1,107 @@
 # Title shown in Application Information tab.
 title: Launch code-server instance 
+informationalText: "Run VS Code on OCI compute instance and access it in the browser."
 # Sub Title shown in Application Information tab.
-description: Launch a code-server instance on OCI
+description: code-server instance
 schemaVersion: 1.1.0
 version: 1.0
 locale: en
 variableGroups:
   - title: "Hidden"
     variables:
-      - ${tenancy_ocid}
-      - ${user_ocid}
-      - ${region}
-      - ${api_fingerprint}
-      - ${api_private_key_path}
-      - ${region}
-      - ${compartment_ocid}
-      - ${ssh_public_key_path}
-      - ${freeform_tags}
-      - ${defined_tags}
-      - ${instance_flex_memory_in_gbs}
-      - ${instance_ad_number}
-      - ${public_ip}
-      - ${vcn_cidr}
-      - ${subnets}
+      - tenancy_ocid
+      - user_ocid
+      - region
+      - api_fingerprint
+      - api_private_key_path
+      - ssh_public_key_path
+      - freeform_tags
+      - defined_tags
+      - instance_flex_memory_in_gbs
+      - public_ip
+      - vcn_cidr
+      - subnets
+      - instance_ad_number
     visible: false
+
   - title: "Configuration"
     variables:
-      - ${compartment_ocid}
-      - ${ssh_public_keys}
-      - ${instance_display_name}
-      - ${shape}
-      - ${instance_flex_ocpus}
+      - compartment_ocid
+      - ssh_public_keys
+      - use_always_free
+      - shape
+      - instance_ad_name
+      - show_advanced
+      
+  - title: "Advanced"
+    visible: 
+        and:
+          - show_advanced
+    variables:
+    - instance_display_name
+    - instance_flex_ocpus
+
 
 variables:
   compartment_ocid:
       title: Compartment
       description: Compartment where to deploy the stack
       type: oci:identity:compartment:id
-      required: false
+      required: true
+      visible: true
   ssh_public_keys:
     title: Compute SSH Public Key
     type: oci:core:ssh:publickey
     description: The public key to install on the instance for SSH access.
     required: false
+    visible: true
+  use_always_free:
+    type: boolean
+    title: "Use Always Free elegible shape"
+    required: true
+    default: true
+    visible: true
+  shape:
+    title: Instance Shape
+    type: oci:core:instanceshape:name
+    description: The shape name to use for the compute instance
+    #default: VM.Standard.E4.Flex
+    required: false
+    visible: 
+        not: 
+          - use_always_free
+    dependsOn:
+          compartmentId: compartment_ocid
+  instance_ad_name:
+    title: Availability Domain
+    type: oci:identity:availabilitydomain:name
+    description: If you have checked Always Free, make sure to select the Always Free elegible Availability Domain.
+    #default: 1
+    required: true
+    dependsOn:
+          compartmentId: compartment_ocid
+  show_advanced:
+    type: boolean
+    title: "Show advanced options?"
+    description: "Shows advanced options."
+    visible: true
+    default: false
+  instance_flex_ocpus:
+    title: Flex Instance OCPU number
+    type: string
+    description: The number of OCPUs. It applies to Flex Instances only
+    default: 1
+    required: false
+    visible: 
+        not: 
+          - use_always_free
   instance_display_name:
     title: Instance Name
     type: string
     description: The name to use for the compute instance
     default: oci-code-server
     required: false
-  shape:
-    title: Instance Shape
-    type: string
-    description: The shape name to use for the compute instance
-    default: VM.Standard.E4.Flex
-    required: false
-  instance_flex_ocpus:
-    title: Flex Instance OCPU number
-    type: string
-    description: The number of OCPUs. It applies to Flex Instance only
-    default: 1
-    required: false
+  
 
 outputs:
   code-server-publicIP:
