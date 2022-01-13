@@ -18,36 +18,36 @@ variable "tenancy_ocid" {
 variable "api_fingerprint" {
   description = "fingerprint of oci api private key"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "api_private_key_path" {
   description = "path to oci api private key used"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "user_ocid" {
   description = "ocid of user that terraform will use to create the resources"
   type        = string
-  default = ""
+  default     = ""
 }
 
 # general oci parameters
 variable "compartment_ocid" {
   description = "compartment ocid where to create all resources"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "freeform_tags" {
   description = "simple key-value pairs to tag the resources created using freeform tags."
   type        = map(string)
-  default     = {
-    "terraformed" = "Please do not edit manually" ,
-    "app"         = "code-server" ,
+  default = {
+    "terraformed" = "Please do not edit manually",
+    "app"         = "code-server",
     "github"      = "https://github.com/oracle-devrel/terraform-oci-code-server",
-    "oci"         = "ODE"  
+    "oci"         = "ODE"
   }
 }
 
@@ -84,11 +84,28 @@ variable "instance_display_name" {
   default     = "oci-code-server"
 }
 
+variable "instance_ad_name" {
+  description = "The availability domain name of the instance. If none is provided will use instance_ad_number instead"
+  type        = string
+  default     = ""
+}
 
 variable "instance_ad_number" {
-  description = "The availability domain number of the instance. If none is provided, it will start with AD-1 and continue in round-robin."
+  description = "The availability domain number of the instance. (default AD:1)"
   type        = number
   default     = 1
+}
+
+
+
+variable "use_always_free" {
+  description = "If true, use OCI Always Free instance shape"
+  type        = bool
+  default     = false
+}
+
+locals {
+  always_free_shape = "VM.Standard.E2.1.Micro"
 }
 
 # operating system parameters
@@ -96,14 +113,14 @@ variable "instance_ad_number" {
 # if both ssh_public-keys and ssh_public_key_path are provided, ssh_public_keys takes priority
 variable "ssh_public_keys" {
   description = "Public SSH key(s) provided as string value"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "ssh_public_key_path" {
   description = "Public SSH key file path"
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 # networking parameters
@@ -124,7 +141,7 @@ variable "vcn_cidr" {
 variable "subnets" {
   description = "parameters to cidrsubnet function to calculate subnet masks within the VCN."
   default = {
-    vsc  = { newbits = 2, netnum = 0}
+    vsc = { newbits = 2, netnum = 0 }
   }
   type = map(any)
 }
